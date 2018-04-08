@@ -18,16 +18,17 @@
         <div class="col-sm-12">
             <div class=" bc-purp">
                 <h1 class="display-4 main-hdr" id="main-hdrTOP">Fail Page !!!</h1>
-                <p class="lead main-hdr">Simply type a word followed by the word 'fail' and you will be shown 20 giphs related to your search.
-                    <br> We have several sugestions on the side for you to click on as well. ENJOY !!!</p>
+                <p class="lead main-hdr">Simply type a word and you will be shown 20 'fail' gifs related to your search.<br>
+                    Search history is displayed at the bottom of the page in buttons for your convenience.
+                    <br> We have several sugestions that are featured on the right side of the carousel as well. ENJOY !!!</p>
             </div>
         </div>
     </div>
     <!-- Split into 3 sections within a row, i would like a search area, a carosel in the middle, and previously searched terms on the side -->
     <div class="row justify-content-center bc-purp">
         <div id="search-area" class="col-sm-2">
-            <input type="search" class="form-control margin-control" placeholder="Search...">
-            <button type="button" class="btn btn-color margin-control">Hit it !!!</button>
+            <input id="searching" type="search" class="form-control margin-control" placeholder="Search...">
+            <button id="search-for-image"type="button" class="btn btn-color margin-control">Hit it !!!</button>
         </div>
         <!-- A carosel will go her that can hold 5 giphs -->
         <div class="col-sm-8">
@@ -70,24 +71,27 @@
         </div>
         <!-- This will be the search and word holding area -->
         <div class="col-sm-2">
-            <button type="button" class="btn btn-color margin-control">Cat Fail</button>
-            <button type="button" class="btn btn-color margin-control">Parkour Fail</button>
-            <button type="button" class="btn btn-color margin-control">Jump Fail</button>
-            <button type="button" class="btn btn-color margin-control">Drunk Fail</button>
-            <button type="button" class="btn btn-color margin-control">College Fail</button>
-            <button type="button" class="btn btn-color margin-control">President Fail</button>
+            <button type="button" data-name="Cat Fail" class="dynamic btn btn-color margin-control">Cat Fail</button>
+            <button type="button" data-name="Parkour Fail" class="dynamic btn btn-color margin-control">Parkour Fail</button>
+            <button type="button" data-name="Dog Fail" class="dynamic btn btn-color margin-control">Dog Fail</button>
+            <button type="button" data-name="Drunk Fail" class="dynamic btn btn-color margin-control">Drunk Fail</button>
+            <button type="button" data-name="college Fail" class="dynamic btn btn-color margin-control">College Fail</button>
+            <button type="button" data-name="President Fail" class="dynamic btn btn-color margin-control">President Fail</button>
         </div>
     </div>
 
     <!-- Container -->
-    <div class="container">
-
+    <div id="newHope" class="container">
+<!-- ---------------------------------------------------- BUFFER --------------------------------------------------------- -->
+<div id="buffer" >
+        Enjoy Your Gifs
+    </div>
  
 <!------------------------------------------------------ BEGINNING OF IMAGE GRID ---------------------------------------- -->
 <!-- Image holding grid row 1 -->
-<div class="row flex">
+<div id = "row1" class="row flex">
         <div class="col-sm-3">
-            <div class="card">
+            <div class="card" id="img1">
                 <img class="grid-giph" src="assets/images/holder1.jpg" alt="placeholder">
             </div>
         </div>
@@ -108,7 +112,7 @@
         </div>
     </div>
 <!-- Image holding grid row 2 -->
-<div class="row flex">
+<div id="row2" class="row flex">
         <div class="col-sm-3">
             <div class="card">
                 <img class="grid-giph" src="assets/images/holder1.jpg" alt="placeholder">
@@ -131,7 +135,7 @@
         </div>
     </div>
 <!-- Image holding grid row 3 -->    
-<div class="row flex">
+<div id="row3" class="row flex">
         <div class="col-sm-3">
             <div class="card">
                 <img class="grid-giph" src="assets/images/holder1.jpg" alt="placeholder">
@@ -154,7 +158,7 @@
         </div>
     </div>
 <!-- Image holding grid row 4 -->    
-<div class="row flex">
+<div id="row4" class="row flex">
         <div class="col-sm-3">
             <div class="card">
                 <img class="grid-giph" src="assets/images/holder1.jpg" alt="placeholder">
@@ -177,7 +181,7 @@
         </div>
     </div>
 <!-- Image holding grid row 5 -->
-<div class="row flex">
+<div id="row5" class="row flex">
         <div class="col-sm-3">
             <div class="card">
                 <img class="grid-giph" src="assets/images/holder1.jpg" alt="placeholder">
@@ -201,8 +205,18 @@
     </div>
 <!------------------------------------------------------ END OF IMAGE GRID --------------------------------------------------- -->
    </div>
+<!--------------------------------------------------------  FOOTER  ---------------------------------------------------------- -->
+<div class="card text-center">
+    
+    <div class="card-body bc-purp">
+        <h5 class="card-title">History !!</h5>
+        <p class="card-text">These are some of your previous searches made to buttons for your convenience. Just click on one to see the results again.</p>
+        <div id="btn-attachment-div">
 
-
+        </div>
+    </div>
+   
+</div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -19,7 +19,7 @@ btn-color {
     text-align: center;
 }
 #main-hdrTOP {
-    font-size: 500%;
+    font-size: 400%;
     font-family: fantasy;
     padding: 30px 0 30px 0;
 }
@@ -42,8 +42,8 @@ btn-color {
     height: 350px;
 }
 .grid-giph {
-    width: 110%;
-    height: 110%;
+    width: 220px;
+    height: 220px;
     border: white solid 10px;
     top: 0;
 }
@@ -53,4 +53,21 @@ btn-color {
 }
 .card {
     border: 0px;
+}
+.grid-assn {
+    width: 270px;
+    height: 270px;
+    border: white solid 10px;
+    top: 0;
+}
+#buffer {
+    border-bottom: 2px solid  #757373;
+    font-size: 350%;
+    font-weight: 6.0em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #3b053b8e;
+    margin: 17px;
+}
+.lead {
+    font-size: 125%;
 }
