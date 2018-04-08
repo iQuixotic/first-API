@@ -8,9 +8,14 @@ $(document).ready(function () {
 // ------- my giphy api key Y4xlv8FyBnZbqm0KrrYBv04TFs0MkfZ2 -------
 //================================================================================================================================================
 // A short list of history topics displayed at the bottom with your current history
-let topics = ["ninja fail", "date fail", "pet fail", "old people fail", "haircut fail"];
+var topics = ["ninja fail", "date fail", "pet fail", "old people fail", "haircut fail"];
 // function to render buttons onto the page
 function renderButtons() {
+  //-----------------------------------------------------------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------------------------------------------------------
+  //------------------------------------------------------THE BANE OF MY EXISTANCE-----------------------------------------------
+  //-----------------------------------------------------------------------------------------------------------------------------
+  console.log("renderButtons has fired");
   // Deleting the buttons prior to adding new buttons
   $("#btn-attachment-div").empty();
   // Looping through the topics array
@@ -22,22 +27,36 @@ function renderButtons() {
     // Adding a class atribute of btn btn-color margin-control to match existing bootstrap buttons
     btn.attr("data-name", topics[i]);
     btn.attr("class", "btn btn-color margin-control dynamic");
+    //-----------------------------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------
     // Providing the button's text with a value of the topic at each index i
     btn.text(topics[i]);
     // appending the button to a div at the bottom of the page for easy visibility
     $("#btn-attachment-div").append(btn);
   }
-}
+};
+//Try this instead of renderButtons
+function renderNewButtonsOnly(){
+  // clearIt();
+  var addBtn = $("<button>");
+  //-------------------------------------------narrowed down to these two lines it dont like -----------------------------------------------
+  // addBtn.attr("data-name", this.topics);
+  addBtn.attr("data-name", topics[topics.length-1]);
+  addBtn.attr("class", "btn btn-color margin-control dynamic");
+  //-----------------------------------------------------------------------------------------------------------------------------------------
+  addBtn.text(topics[topics.length-1]);
+  $("#btn-attachment-div").append(addBtn);
+  console.log(typeof addBtn);
+};
 // Calling the renderButtons function for initial topics
 renderButtons();
 var clickBait;
-//=================================================================================================================================================
+//=====================THIS ON-CLICK EVENT WORKS PROPERLY  UNTIL THE NEXT SEARCH BUTTON IS CLICKED THE FIRST TIME=========================
 $(".dynamic").on("click", function () {
   clearIt();
   // Grabbing and storing the data property value from the button
-  console.log("i see you");
   clickBait = $(this).attr("data-name");
-  console.log(clickBait);
   var attach = $("<div>");
   // Constructing a queryURL using the fail name
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -49,11 +68,10 @@ $(".dynamic").on("click", function () {
   })
     // After data comes back from the request
     .then(function (response) {
-      console.log(queryURL);
-      console.log(response);
       // storing the data from the AJAX request in the results variable
       var results = response.data;
       // Looping through each result item
+      //My Sorting Loop that assigns rows every fourth element
       for (i = 0; i < results.length; i++) {
         if (i % 4 !== 0) {
           var newDiv = $("<div>");
@@ -92,24 +110,26 @@ $(".dynamic").on("click", function () {
           //append everything
           newDiv.append(failImage);
           newDiv.append(p);
-
           // prepending
           $("#row1").prepend(newDiv);
         }
       }
     });
 });
-//===========================================================================================================================================================
+//=====================================================THESE TWO FUNCTIONS APPEAR TO BE WORKING PROPERLY================================================================================================
+var topic;
+function iBelieveInYou()  {
 // This function handles events where the search button is clicked
-$("#search-for-image").on("click", function (event) {
+// $("#search-for-image").on("click", function (event) {
   // event.preventDefault();
   // grab user text from the input box and concatenate the word 'fail'
-  var topic = $("#searching").val().trim() + " fail";
+  topic = $("#searching").val().trim() + " fail";
   // The topic from the textbox is then added to topics array
   topics.push(topic);
   // calling renderButtons which creates buttons dynamically
-  renderButtons();
-});
+  renderNewButtonsOnly();
+//});
+};
 function clearIt(){
   $("#row1").empty();
   $("#row2").empty();
@@ -117,11 +137,13 @@ function clearIt(){
   $("#row4").empty();
   $("#row5").empty();
   }
-  //==============================================================================================================================================================
+  //====SOMEWHERE IN HERE IS WHERE THE PROBLEM IS. ONCE THIS BUTTON IS CLICKED FOR THE FIRST TIME, THE BUTTONS AT THE BOTTOM OF THE PAGE CEASE TO WORK===========================================================================
 //on-click of the search button, a function will be called and gifs related to that search will be rendered
 $("#search-for-image").on("click", function () {
   // clearing out the rows of images to be replaced by gifs on the grid
   clearIt();
+  //calling function I believe in you
+  iBelieveInYou();
   // create a variable called attach for making a div and a variable called searching
   // to capture the value inside the text box
   var attach = $("<div>");
@@ -177,15 +199,17 @@ $("#search-for-image").on("click", function () {
           failImage.attr("src", results[i].images.fixed_height.url);
           failImage.attr("alt", "fail image");
           failImage.attr("class", "grid-assn");
-          newDiv.attr("class", "col-md-3")
+          newDiv.attr("class", "col-md-3");
           //append everything
           newDiv.append(failImage);
           newDiv.append(p);
           //attach the div to the page here
           $("#row1").prepend(newDiv);
-         
         }
       }
-      renderButtons();
+      // renderButtons();
     });
 });
+function refresh(){
+  location.reload();
+};
