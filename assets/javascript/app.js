@@ -11,10 +11,6 @@ $(document).ready(function () {
 var topics = ["ninja fail", "date fail", "pet fail", "old people fail", "haircut fail"];
 // function to render buttons onto the page
 function renderButtons() {
-  //-----------------------------------------------------------------------------------------------------------------------------
-  //-----------------------------------------------------------------------------------------------------------------------------
-  //------------------------------------------------------THE BANE OF MY EXISTANCE-----------------------------------------------
-  //-----------------------------------------------------------------------------------------------------------------------------
   console.log("renderButtons has fired");
   // Deleting the buttons prior to adding new buttons
   $("#btn-attachment-div").empty();
@@ -27,24 +23,19 @@ function renderButtons() {
     // Adding a class atribute of btn btn-color margin-control to match existing bootstrap buttons
     btn.attr("data-name", topics[i]);
     btn.attr("class", "btn btn-color margin-control dynamic");
-    //-----------------------------------------------------------------------------------------------------------------------
-    //-----------------------------------------------------------------------------------------------------------------------
-    //-----------------------------------------------------------------------------------------------------------------------
     // Providing the button's text with a value of the topic at each index i
     btn.text(topics[i]);
     // appending the button to a div at the bottom of the page for easy visibility
     $("#btn-attachment-div").append(btn);
   }
 };
-//Try this instead of renderButtons
+//Tried this instead of renderButtons
 function renderNewButtonsOnly(){
   // clearIt();
   var addBtn = $("<button>");
-  //-------------------------------------------narrowed down to these two lines it dont like -----------------------------------------------
   // addBtn.attr("data-name", this.topics);
   addBtn.attr("data-name", topics[topics.length-1]);
   addBtn.attr("class", "btn btn-color margin-control dynamic");
-  //-----------------------------------------------------------------------------------------------------------------------------------------
   addBtn.text(topics[topics.length-1]);
   $("#btn-attachment-div").append(addBtn);
   console.log(typeof addBtn);
@@ -53,7 +44,8 @@ function renderNewButtonsOnly(){
 renderButtons();
 var clickBait;
 //=====================THIS ON-CLICK EVENT WORKS PROPERLY  UNTIL THE NEXT SEARCH BUTTON IS CLICKED THE FIRST TIME=========================
-$(".dynamic").on("click", function () {
+$(document).on("click", ".dynamic", function (){
+//$(".dynamic").on("click", function () {
   clearIt();
   // Grabbing and storing the data property value from the button
   clickBait = $(this).attr("data-name");

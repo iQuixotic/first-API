@@ -2,8 +2,11 @@
 .btn, .form-control {
    margin: 15px 10px 0 30px;
 }
+#margin-control {
+    margin-bottom: 10px;
+}
 .btn-color:hover {
-    background: #f6fce077;
+    background: #f6fce077;                     
     color: white;
 }
 btn-color {
@@ -70,4 +73,10 @@ btn-color {
 }
 .lead {
     font-size: 125%;
+}
+.lr {
+    color: white;
+    text-align: center;
+    font-size: 200%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
