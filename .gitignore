@@ -1,0 +1,4 @@
+node_modules
+
+# can be used to 'untrace' github file
+# git rm -r --cached .

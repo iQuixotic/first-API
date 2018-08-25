@@ -1,0 +1,25 @@
+{
+  "name": "first-api",
+  "version": "1.0.0",
+  "description": "Upon the document being ready, the carousel begins to run. Several placeholder images are generated to a div (via html) which will be populated by gifs later. A function called renderButtons is called for the first time which will create one button (and assign attributes) for each topics[i]. Upon clicking any element with the class of dynamic (which all buttons are assigned in renderButtons or renderNewButtonsOnly), an anonymous function fires which clears the gif div (clearIt()), querys giphy, and prints 20 giphs related to that search and prints them in the same format. Clicking the search button upon putting in new text will do the same thing in addition to calling the function iBelieveInYou(). iBelieveInYou pushes the word into the topics array and calls renderNewButtonsOnly(). When this is called, it creates a new button and assigns it with the same attributes as the other buttons on my page. For whatever reason, I have been to this point unable to make these newly rendered buttons clickable.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iQuixotic/first-API.git"
+  },
+  "author": "iQuixotic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iQuixotic/first-API/issues"
+  },
+  "homepage": "https://github.com/iQuixotic/first-API#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  }
+}
